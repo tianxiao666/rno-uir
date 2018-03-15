@@ -1,0 +1,13 @@
+<div class="card" style="color: #222222">
+    <div class="card-header clearfix" style="background-color: #1e88e5;
+    border-radius: 5px 5px 0 0;
+    color: #fafafa;
+    font-size: 16px;
+    padding: 8px 16px;
+    height: 34px">
+        <h3 class="card-title" style="font-size: 16px">上行干扰数据导入</h3>
+    </div>
+    <div class="card-body">
+        <p>这里是导入页面</p>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="panel panel-default">
+  <table class="table table-striped"
+         [mfData]="datalist"
+         #mf="mfDataTable"
+         [mfRowsOnPage]="rowsOnPage"
+         [(mfSortBy)]="sortBy"
+         [(mfSortOrder)]="sortOrder"
+         [mfActivePage]="activePage"
+         (mfOnPageChange)="onPageChange($event)"
+         [mfIsServerPagination]="true"
+         [(mfAmountOfRows)]="itemsTotal"
+  >
+    <thead>
+    <tr>
+      <th *ngFor="let key of dataName" align="left">
+        {{key}}
+      </th>
+      <th *ngIf="dataName.length != 0">操作</th>
+    <tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of mf.data;">
+      <td >{{item.name}}</td>
+      <td >{{item.status}}</td>
+      <td style="white-space: pre-wrap;word-break: break-all">{{item.description}}</td>
+      <td >{{item.fileName}}</td>
+      <td>{{item.startTime ==null? item.startTime:item.startTime.substring(0,10)+" "+item.startTime.substring(11,19)}}</td>
+      <td>{{item.endTime==null?item.endTime: item.endTime.substring(0,10)+" "+item.endTime.substring(11,19)}}</td>
+      <td><a type="button" class="btn btn-sm btn-info"
+             *ngIf="item['status']== '正常完成'" (click)="downloadResult(item['id'])">下载结果文件</a>
+        </td>
+    <tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan='100'>
+        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>

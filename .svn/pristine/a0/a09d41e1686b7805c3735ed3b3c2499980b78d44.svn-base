@@ -1,0 +1,80 @@
+<form class="form-inline">
+  <div class="form-group">
+    <p class="p-control">地市：</p>
+    <div style="width: 16px"></div>
+    <app-area-data-t (areaChange)="OnAreaCht($event)" (areaSet)="OnAreaSetT($event)"></app-area-data-t>
+  </div>
+
+  <!-- 分隔 -->
+  <div style="width: 30px"></div>
+
+  <div class="form-group">
+    <p class="p-control">干扰时间：</p>
+    <div class="input-group">
+      <my-date-picker name="mydate1" [options]="myDatePickerOptions" style="width: 160px;height: 36px"
+                      [(ngModel)]="statisticecondition.date1"></my-date-picker>
+    </div>
+    <div style="width: 5px"></div>
+    <p class="p-control">到</p>
+    <div style="width: 5px"></div>
+    <div class="input-group">
+      <my-date-picker name="mydate2" [options]="myDatePickerOptions" style="width: 160px;height: 36px"
+                      [(ngModel)]="statisticecondition.date2"></my-date-picker>
+    </div>
+  </div>
+
+
+  <!-- 分隔 -->
+  <div style="width: 10px"></div>
+
+  <div class="form-group">
+    <p class="p-control">设备：</p>
+    <div class="input-group">
+      <select class="form-control" name="datatype" [(ngModel)]="statisticecondition.device" style="height: 36px">
+        <option *ngFor="let op of _device" [value]="op.value">{{op.label}}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- 分隔 -->
+  <div style="width: 10px"></div>
+
+  <p class="p-control">小区名称：</p>
+  <div class="form-group">
+    <div class="input-group">
+      <input class="form-control" name="cellInput" [(ngModel)]="statisticecondition.inputValue">
+    </div>
+  </div>
+  <!-- 分隔 -->
+  <div style="width: 20px"></div>
+
+  <div class="input-group">
+    <input type="radio" name="tableValue" value="table" checked="checked" [(ngModel)]="statisticecondition.showType" >
+  </div>
+  <p class="p-control">表格</p>
+  <div style="width: 5px"></div>
+  <div class="input-group">
+    <input type="radio" name="chartValue" value="chart" [(ngModel)]="statisticecondition.showType">
+  </div>
+  <p class="p-control">图形</p>
+
+  <div style="width: 30px"></div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <button type="button" class="btn btn-default"  (click)="statisticsClick($event)" icon="fa-search">干扰统计</button>
+    </div>
+  </div>
+  <!-- 分隔 -->
+  <div style="width: 20px"></div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <button type="button" class="btn btn-default"  (click)="analysisClick($event)" icon="fa-search"
+              [disabled]="statisticecondition.inputValue==''||statisticecondition.inputValue.trim()==''||statisticecondition.inputValue.indexOf(',')>0">小区干扰分析</button>
+    </div>
+  </div>
+
+</form>
+
+

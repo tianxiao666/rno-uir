@@ -1,0 +1,7 @@
+<div class="row">
+  <div class="input-group" *ngFor="let n of lists; let i=index">
+    <select [(ngModel)]= "codes[i]" (change)="ChangeSel(i)" class="form-control" style="height: 36px">
+      <option *ngFor="let l of lists[i]" [value]="l.n">{{l.d}}</option>
+    </select>
+  </div>
+</div>

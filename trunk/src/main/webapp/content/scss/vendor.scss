@@ -1,0 +1,18 @@
+/* after changing this file run 'yarn run 'yarn run webpack:build' */
+$fa-font-path: '~font-awesome/fonts';
+
+/***************************
+put Sass variables here:
+eg $input-color: red;
+****************************/
+
+// Import Bootstrap source files from node_modules
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/font-awesome/scss/font-awesome';
+
+// Override Boostrap variables
+@import "bootstrap-variables";
+@import "layout";
+@import "mixins";
+@import "ng2";
+@import "variables";
